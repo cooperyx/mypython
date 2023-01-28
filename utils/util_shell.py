@@ -153,7 +153,7 @@ def delete_basecall_res(data_name):
     ]
     for file_path in file_path_list:
         cmd = "rm -f {}".format(file_path)
-        local_sudo_run_cmd("yanxu", "bgi3.14", cmd)
+        local_sudo_run_cmd("yanxu", "xxxx", cmd)
     return data_dir
 
 
@@ -165,10 +165,10 @@ def local_basecll(ip, gpu_num, data_name, jobs, block=False):
     script_path = "/home/yanxu/basecall_data/basecall_to_output.sh"
     if not block:
         cmd = "nohup bash {}  {} {} {} > {}/basecall.log  2>&1  &".format(script_path, data_name, gpu_num, jobs, data_dir)
-        remote_run_cmd(ip, "yanxu", "bgi3.14", cmd)
+        remote_run_cmd(ip, "yanxu", "xxxx", cmd)
     else:
         cmd = "bash {}  {} {} {}".format(script_path, data_name, gpu_num, jobs)
-        remote_run_cmd(ip, "yanxu", "bgi3.14", cmd)
+        remote_run_cmd(ip, "yanxu", "xxxx", cmd)
 
 
 def local_basecll_v1(ip, gpu_num, data_name, jobs, block=False):
@@ -182,11 +182,11 @@ def local_basecll_v1(ip, gpu_num, data_name, jobs, block=False):
     script_path = "/home/yanxu/basecall_data/basecall_to_output.sh"
     if not block:
         cmd = "nohup bash {}  {} {} {} > {}/basecall.log  2>&1  &".format(script_path, data_name, gpu_num, jobs, data_dir)
-        remote_run_cmd(ip, "yanxu", "bgi3.14", cmd)
+        remote_run_cmd(ip, "yanxu", "xxxx", cmd)
 
     else:
         cmd = "bash {}  {} {} {}".format(script_path, data_name, gpu_num, jobs)
-        remote_run_cmd(ip, "yanxu", "bgi3.14", cmd)
+        remote_run_cmd(ip, "yanxu", "xxxx", cmd)
 
     # 4.
 
@@ -196,4 +196,4 @@ def cp_folders_from_output_data(data_name, tar_ip):
         data_name, data_name
     )
     logging.info(cmd)
-    remote_run_cmd(tar_ip, "yanxu", "bgi3.14", cmd)
+    remote_run_cmd(tar_ip, "yanxu", "xxxx", cmd)
